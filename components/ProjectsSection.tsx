@@ -431,9 +431,23 @@ const ProjectModal = ({
     </motion.div>
   );
 };
+type ProjectType = {
+  id: number;
+  name: string;
+  emoji: string;
+  tech: string[];
+  description: string[];
+  category: string;
+  image: string;
+  buttons: {
+    viewCode?: string;
+    viewPaper?: string;
+    liveDemo?: string;
+  };
+};
 
 export default function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
